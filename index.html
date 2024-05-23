@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="materialize.min.css" media="screen,projection"> -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<header>
+    <!-- Navigation bar -->
+    
+    <div class="navbar">
+        <a href="#Overview">Overview</a>
+        <a href="#Explore">Explore</a>
+        <a href="#BTS">BTS</a>
+        <a href="#Kunsthalle">Post Processing</a>
+        <a href="#Learn More">Learn More</a>
+    </div>
+
+</header>
+
+
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel">
+          <div class="slide">
+            <img src="../Public/b.jpg" alt="Image 1">
+            <div class="text-overlay">Here, we talk about our basic idea. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor</div>
+          </div>
+          <div class="slide">
+            <img src="../Public/a.jpg" alt="Image 2">
+            <div class="text-overlay">Text overlay for Image 2</div>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+
+        <!-- navigation icons -->
+        <i class="fa fa-arrow-circle-o-left fa-4x prev"></i>
+        <i class="fa fa-arrow-circle-o-right fa-4x next" style="float:right"></i>
+    </div>
+      
+    <div class="nxtbtn">
+        <button>Explore now</button>
+    </div>
+    
+    <div class="nxtbtn">
+        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+    </div>
+    
+    <div class = "container">
+      <div class="section">
+        <div class="image-container">
+          <img id="displayedImage" src="../Public/Images_Culture/exterior/Chinese/school/1.jpg" alt="prompt">
+          <div class="icon-container">
+            <span class="icon zoom-icon" title="Zoom"><i class="fa fa-search-plus"></i></span>
+            <span class="icon download-icon" title="Download"><i class="fa fa-download"></i></span>
+            <span class="icon reload-icon" title="Reload"><i class="fa fa-refresh"></i></span>
+          </div>
+        </div>
+        <div class="prompt">
+            <h1>Contextual Design</h1>
+            <p>
+              An
+              <span class="dropdown-trigger" data-trigger="1">exterior  
+                <i class="fa fa-caret-down"></i>
+              </span> 
+              photograph from a 
+              <span class="dropdown-trigger" data-trigger="2">Chinese  
+                <i class="fa fa-caret-down"></i>
+              </span>
+              contemporary 
+              <span class="dropdown-trigger" data-trigger="3">school  
+                <i class="fa fa-caret-down"></i>
+              </span>
+              with focus on the local materiality. The structure must clearly show its elements and how they can be disassembled and repurposed.
+            </p>
+            <div class="dropdown-menu" data-menu="1">
+                <ul>
+                  <li data-word="artistic">artistic</li>
+                </ul>
+            </div>
+            <div class="dropdown-menu" data-menu="2">
+              <ul>
+                <li data-word="Swedish">Swedish</li>
+                <li data-word="Mexican">Mexican</li>
+                <li data-word="Indian">Indian</li>
+              </ul>
+            </div>
+            <div class="dropdown-menu" data-menu="3">
+              <ul>
+                <li data-word="museum">museum</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+
+    </div>
+    
+      
+
+    <div class="section">
+        <img src="https://picsum.photos/660/480" alt="prompt" style="float:right">
+        <div class="prompt" style="float:left; text-align:end">
+            <h1>Repurpose Strategies</h1>
+            <p>Think of a 
+                <button> prompt 
+                <i class="fa fa-caret-down"></i>
+                </button> 
+                to put here and how to insert a dropdown menu here?
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <img src="https://picsum.photos/660/540" alt="prompt">
+        <div class="prompt">
+            <h1>Reuse Strategies</h1>
+            <p>Think of a 
+                <button> prompt 
+                <i class="fa fa-caret-down"></i>
+                </button> 
+                to put here and how to insert a dropdown menu here?
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+        </div>
+    </div>
+
+
+    <div class="nxtbtn">
+        <button>BTS - Behind the scenes</button>
+    </div>
+    
+    <div class="nxtbtn">
+        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+    </div>
+
+    <div class="nxtbtn">
+        <button>Post Processing</button>
+    </div>
+    
+    <div class="nxtbtn">
+        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+    </div>
+
+    <div class="nxtbtn">
+        <button>Learn More</button>
+    </div>
+    
+    <div class="nxtbtn">
+        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+    </div>
+    
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const carousel = document.querySelector(".carousel");
+          const slides = document.querySelectorAll(".slide");
+          const prevBtn = document.querySelector(".prev");
+          const nextBtn = document.querySelector(".next");
+          let currentIndex = 0;
+          let isDragging = false;
+          let startPosX = 0;
+          let currentPosX = 0;
+      
+          function showSlide(index) {
+            slides.forEach((slide, i) => {
+              slide.style.transform = `translateX(-${index * 100}%)`;
+            });
+          }
+      
+          function prevSlide() {
+            if (currentIndex > 0) {
+              currentIndex--;
+              showSlide(currentIndex);
+            }
+          }
+      
+          function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+              currentIndex++;
+              showSlide(currentIndex);
+            }
+          }
+      
+          prevBtn.addEventListener("click", prevSlide);
+          nextBtn.addEventListener("click", nextSlide);
+      
+          carousel.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startPosX = e.clientX;
+          });
+      
+          carousel.addEventListener("mouseup", () => {
+            isDragging = false;
+            const deltaX = currentPosX - startPosX;
+            if (deltaX > 1) {
+              prevSlide();
+            } else if (deltaX < -1) {
+              nextSlide();
+            }
+          });
+      
+          carousel.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+              currentPosX = e.clientX;
+            }
+          });
+      
+          carousel.addEventListener("mouseleave", () => {
+            isDragging = false;
+          });
+      
+          // Touch events for touch devices
+          carousel.addEventListener("touchstart", (e) => {
+            isDragging = true;
+            startPosX = e.touches[0].clientX;
+          });
+      
+          carousel.addEventListener("touchmove", (e) => {
+            if (isDragging) {
+              currentPosX = e.touches[0].clientX;
+            }
+          });
+      
+          carousel.addEventListener("touchend", () => {
+            isDragging = false;
+            const deltaX = currentPosX - startPosX;
+            if (deltaX > 50) {
+              prevSlide();
+            } else if (deltaX < -50) {
+              nextSlide();
+            }
+          });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageFolder = 'Images_Culture';
+            const selectedWords = {'1': 'exterior', '2': 'Chinese', '3': 'school'};
+            const imageCount = 2; // Number of images per combination
+            const imageContainer = document.querySelector('.image-container img');
+            const zoomIcon = document.querySelector('.zoom-icon');
+            const downloadIcon = document.querySelector('.download-icon');
+            const reloadIcon = document.querySelector('.reload-icon');
+            let currentOpenMenu = null;
+
+            function updateImage() {
+                const word1 = selectedWords['1'];
+                const word2 = selectedWords['2'];
+                const word3 = selectedWords['3'];
+                if (word1 && word2 && word3) {
+                    // Generate a random number between 1 and imageCount
+                    const randomImageNumber = Math.floor(Math.random() * imageCount) + 1;
+                    const imagePath = `${imageFolder}/${word1}/${word2}/${word3}/${randomImageNumber}.jpg`;
+                    document.getElementById('displayedImage').src = imagePath;
+                }
+            }
+
+            function toggleDropdown(event) {
+                const trigger = event.currentTarget;
+                const triggerId = trigger.getAttribute('data-trigger');
+                const dropdownMenu = document.querySelector(`.dropdown-menu[data-menu="${triggerId}"]`);
+                // Close the currently open menu if it is not the same as the one being toggled
+                if (currentOpenMenu && currentOpenMenu !== dropdownMenu) {
+                    currentOpenMenu.style.display = 'none';
+                }
+                const rect = trigger.getBoundingClientRect();
+                dropdownMenu.style.top = `${rect.bottom + window.scrollY}px`;
+                dropdownMenu.style.left = `${rect.left + window.scrollX}px`;
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                currentOpenMenu = dropdownMenu.style.display === 'block' ? dropdownMenu : null;
+
+                event.stopPropagation();
+            }
+
+            function hideDropdown(event) {
+              if (currentOpenMenu && !currentOpenMenu.contains(event.target) && !event.target.classList.contains('dropdown-trigger')) {
+                  currentOpenMenu.style.display = 'none';
+                  currentOpenMenu = null;
+              }
+            }
+
+            document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+                trigger.addEventListener('click', toggleDropdown);
+            });
+
+            document.addEventListener('click', hideDropdown);
+
+            document.querySelectorAll('.dropdown-menu ul').forEach(menu => {
+                menu.addEventListener('click', function(event) {
+                    if (event.target.tagName === 'LI') {
+                        const word = event.target.getAttribute('data-word');
+                        const triggerId = menu.parentNode.getAttribute('data-menu');
+                        const trigger = document.querySelector(`.dropdown-trigger[data-trigger="${triggerId}"]`);
+                        const previousWord = trigger.textContent.trim();
+                        selectedWords[triggerId] = word;
+
+                        trigger.innerHTML = `${word} <i class="fa fa-caret-down"></i>`;
+
+                        const liToSwap = Array.from(menu.children).find(li => li.textContent.trim() === word);
+                        liToSwap.textContent = previousWord;
+                        liToSwap.setAttribute('data-word', previousWord);
+
+                        updateImage();
+                        menu.parentNode.style.display = 'none';
+                        currentOpenMenu = null;
+                    }
+                });
+            });
+
+            // Handle zoom icon click
+            zoomIcon.addEventListener('click', () => {
+              const zoomedImageContainer = document.createElement('div');
+              zoomedImageContainer.classList.add('zoomed-image-container');
+
+              const zoomedImage = document.createElement('img');
+              zoomedImage.src = imageContainer.src;
+              
+              const zoomedIconContainer = document.createElement('div');
+              zoomedIconContainer.classList.add('zoomed-icon-container');
+
+              const zoomOutIcon = document.createElement('i');
+              zoomOutIcon.classList.add('fa', 'fa-search-minus');
+
+              const downloadIconZoomed = document.createElement('i');
+              downloadIconZoomed.classList.add('fa', 'fa-download');
+
+              zoomedIconContainer.appendChild(zoomOutIcon);
+              zoomedIconContainer.appendChild(downloadIconZoomed);
+
+              zoomedImageContainer.appendChild(zoomedImage);
+              zoomedImageContainer.appendChild(zoomedIconContainer);
+              document.body.appendChild(zoomedImageContainer);
+
+              // Event listener to close zoomed image
+              zoomOutIcon.addEventListener('click', () => {
+                  document.body.removeChild(zoomedImageContainer);
+              });
+
+              // Add event listener to close zoomed image
+              zoomedImageContainer.addEventListener('click', () => {
+                  document.body.removeChild(zoomedImageContainer);
+              });
+
+              // Event listener to download zoomed image
+              downloadIconZoomed.addEventListener('click', () => {
+                  const link = document.createElement('a');
+                  link.href = zoomedImage.src;
+                  link.download = 'downloaded_image.jpg';
+                  link.click();
+              });
+            });
+
+            // Handle download icon click
+            downloadIcon.addEventListener('click', () => {
+              const link = document.createElement('a');
+              link.href = imageContainer.src;
+              link.download = 'downloaded_image.jpg';
+              link.click();
+            });
+
+            // Handle reload icon click
+            reloadIcon.addEventListener('click', () => {
+              const imageSrc = imageContainer.src;
+              const newImageSrc = imageSrc.includes('_1') ? imageSrc.replace('_1', '_2') : imageSrc.replace('_2', '_1');
+              imageContainer.src = newImageSrc;
+            });
+        });
+
+
+      </script>
+      
+      
+      
+</body>
+</html>

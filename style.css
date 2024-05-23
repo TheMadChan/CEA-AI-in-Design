@@ -1,0 +1,335 @@
+
+.navbar {
+  background-color:rgb(0, 0, 0);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align:right;
+  }
+
+.navbar a {
+  font-family:raleway;
+  display:inline-block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  background-color: #ffffff;
+  color:rgb(53, 53, 53);
+  
+}
+
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top:15px;
+  justify-content: center;
+  max-height:700px;
+  position:relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  max-height:700px;
+  border-radius:10px;
+  height: auto;
+}
+
+/* need to fix the overflowing text! */
+.text-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  font-family:raleway;
+  font-weight:300;
+  background-color:rgba(0, 0, 0, 0.5);
+  padding:20px;
+  color:rgb(255, 255, 255);
+  font-size:18px;
+  display:inline-block;
+  overflow-y:auto;
+  max-height:300px;
+}
+
+.text-overlay:hover {
+  background-color:rgba(255, 255, 255, 0.8);
+  color:rgb(0, 0, 0);
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover,
+.next:hover{
+  color:rgba(0, 0, 0, 0.5);
+}
+
+.nxtbtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nxtbtn button{
+  padding:10px 30px;
+  background-color:rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+  border-color:black;
+  border-width: 3px;
+  display:inline-block;
+  font-family:raleway;
+  font-size:22px;
+  margin-top:10px;
+  margin-bottom:5px;
+  border-radius: 10px;
+}
+
+.nxtbtn button:hover{
+  padding:13px 33px;
+  background-color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+  border:none;
+  margin-bottom:7px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section{
+  display:flex;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top:20px;
+  height:450px;
+  width:1100px;
+  overflow: hidden;
+  align-items:center;
+}
+
+.image-container {
+  width:550px;
+  height:100%;
+  margin:5px;
+  border-radius:10px;
+  /* float:left; */
+  overflow:hidden;
+  position:relative;
+  align-content:center;
+}
+
+.image-container img {
+  display:block;
+  height:100%;
+  width:100%;
+  border-radius:10px;
+  object-fit:cover;
+}
+
+.icon-container {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.icon {
+  margin: 5px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.623);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20%;
+  padding: 10px;
+}
+
+.icon:hover {
+  color: black;
+  background-color: white;
+  border:2px solid black;
+}
+
+.image-container:hover .icon-container {
+  display: flex;
+}
+
+.image-container:hover .img {
+  opacity:10%;
+}
+
+.prompt {
+  flex: 1; /* Take remaining space */
+  height:100%;
+  margin:5px;
+  text-align:left;
+  overflow-y: auto;
+  /* position:relative; */
+}
+
+/* Styles for zoomed image overlay */
+.zoomed-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.zoomed-image-container img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.zoomed-icon-container {
+  display: none;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  display: flex;
+  gap: 10px;
+}
+
+.zoomed-image-container:hover .zoomed-icon-container {
+  display: flex;
+}
+
+.zoomed-icon-container i {
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20%;
+}
+
+@media (max-width: 1170px) {
+  .section {
+      flex-direction: column; /* Stacks items vertically on small screens */
+      align-items: flex-start;
+      height:auto;
+  }
+
+  .image-container {
+      width: 100%; /* Image container takes full width on small screens */
+      height: auto; /* Height adjusts to maintain aspect ratio */
+      margin-right: 0; /* Removes the margin on small screens */
+      margin-bottom: 20px; /* Adds some space between the image and text on small screens */
+      border-radius:10px;
+    }
+
+  .prompt {
+      overflow-y: auto;
+      max-height:450px;
+      width: 100%; /* Text container takes full width on small screens */
+  }
+}
+
+.prompt h1{
+  font-family:raleway;
+  /* font-size:28px; */
+  color: rgb(0, 0, 0);
+  padding: 0px 20px;
+  text-decoration: none;
+}
+
+.prompt p{
+  font-family:raleway;
+  font-size:24px;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-decoration: none;
+  line-height: 200%;
+}
+
+.dropdown-trigger{
+  cursor: pointer;
+  line-height:160%;
+  font-size:22px;
+  font-weight:500;
+  /* background-color: yellow; */
+  border:2px solid black;
+  padding:0px 15px;
+  margin-inline-start:3px;
+  margin-inline-end:6px;
+  border-radius:10px;
+  /* width:250px; */
+  text-align:center;
+  position:relative;
+  display: inline-block;
+}
+
+.dropdown-trigger:hover{
+  cursor: pointer;
+  font-weight:600;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: black;
+  z-index: 1;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 10px;
+  left: 0;
+  top: 100%; /*Position below the trigger */
+  width: max-content;
+  max-height: 200px;
+  overflow-y: auto; /* vertical scrolling */
+}
+
+.dropdown-menu ul {
+  background-color:black;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  font-family:raleway;
+  color:white;
+  padding: 8px 5px;
+  cursor: pointer;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.dropdown-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu ul li:hover {
+  text-decoration:underline;
+}
