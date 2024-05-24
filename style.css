@@ -218,11 +218,10 @@
   position: absolute;
   bottom: 50%;
   right: 50%;
-  display: flex;
   gap: 10px;
 }
 
-.zoomed-image-container:hover .zoomed-icon-container {
+.zoomed-image-container.img:hover .zoomed-icon-container {
   display: flex;
 }
 
