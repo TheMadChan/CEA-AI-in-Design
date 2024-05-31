@@ -14,9 +14,9 @@
     <div class="navbar">
         <a href="#Home">Home</a>
         <a href="#Explore">Explore</a>
+        <a href="#PostProcessing">Post Processing</a>
         <a href="#BTS">BTS</a>
-        <a href="#Kunsthalle">Post Processing</a>
-        <a href="#Learn More">Learn More</a>
+        <a href="#LearnMore">Learn More</a>
     </div>
 
 </header>
@@ -27,17 +27,19 @@
     <div class="carousel-container">
         <div class="carousel">
           <div class="slide">
-            <img src="../CEA-AI-in-Design/b.jpg" alt="Image 1">
-            <div class="text-overlay">Here, we talk about our basic idea. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor</div>
+            <img src="../CEA-AI-in-Design/Images/Cover/1.jpg" alt="Image 1">
+            <div class="text-overlay">Artificial Intelligence is a powerful tool in the current world. 
+              It is becoming increasingly evident that AI has a huge potential in the field of (circular) construction, 
+              especially in the design processes involving complex decision-making while making use of large volume of existing data.
+            </div>
           </div>
           <div class="slide">
-            <img src="../CEA-AI-in-Design/a.jpg" alt="Image 2">
+            <img src="../CEA-AI-in-Design//Images/Cover/2.jpg" alt="Image 2">
             <div class="text-overlay">Text overlay for Image 2</div>
+          </div>
+          <div class="slide">
+            <img src="../CEA-AI-in-Design/Images/Cover/3.jpg" alt="Image 3">
+            <div class="text-overlay">Text overlay for Image 3</div>
           </div>
           <!-- Add more slides as needed -->
         </div>
@@ -46,23 +48,45 @@
         <i class="fa fa-angle-double-left fa-3x prev"></i>
         <i class="fa fa-angle-double-right fa-3x next" style="float:right"></i>
     </div>
-      
-    <div class="nxtbtn">
-        <button>Explore now</button>
+
+    <div class="next-button-container">
+      <div class="next-button" data-target="#Explore">
+        Explore
+      </div>
+      <i class="fa fa-angle-double-down fa-2x"></i>
     </div>
     
-    <div class="nxtbtn">
-        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
-    </div>
-    
-    <div class = "container">
-      <div class="section">
+    <div class = "container" id="Explore">
+      <div class="text">
+        <p>
+          While AI manages to inspire the designers, it also fails terribly sometimes 
+          (actually most of the time). The large language model does not really understand 
+          the content of the image, it rather focuses only on pixel information and text 
+          matching. Here are some interesting examples or lets say bloopers of the work.
+        </p>
+      </div>
+      <div class="section" id="Culture">
         <div class="image-container">
-          <img id="displayedImage" src="../CEA-AI-in-Design/Images_Culture/exterior/Chinese/school/1.jpg" alt="prompt">
+          <div class="loading-overlay" id="loading-overlay-Culture">
+            <div class="loading-dots">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+          </div>
+          <img id="displayedImageCulture" src="../CEA-AI-in-Design/Images/Culture/exterior/Chinese/school/1.jpg" alt="prompt">
           <div class="icon-container">
-            <span class="icon zoom-icon" title="Zoom"><i class="fa fa-search-plus"></i></span>
-            <span class="icon download-icon" title="Download"><i class="fa fa-download"></i></span>
-            <span class="icon reload-icon" title="Reload"><i class="fa fa-refresh"></i></span>
+            <span class="icon zoom-icon" title="Zoom" data-section="Culture"><i class="fa fa-search-plus" ></i></span>
+            <span class="icon download-icon" title="Download" data-section="Culture"><i class="fa fa-download"></i></span>
+            <span class="icon reload-icon" title="Reload" data-section="Culture"><i class="fa fa-refresh"></i></span>
+          </div>
+          <span class="image-option-button" data-section="Culture">Mid Journey   
+            <i class="fa fa-caret-down"></i></span>
+          <div class="image-option-dropdown">
+            <ul>
+              <li data-image="1.jpg">Midjourney</li>
+              <li data-image="2.jpg">Runway ML</li>
+            </ul>
           </div>
         </div>
         <div class="prompt">
@@ -101,63 +125,180 @@
             </div>
         </div>
       </div>
-
-    </div>
-    
       
-
-    <div class="section">
-        <img src="https://picsum.photos/660/480" alt="prompt" style="float:right">
-        <div class="prompt" style="float:left; text-align:end">
-            <h1>Repurpose Strategies</h1>
-            <p>Think of a 
-                <button> prompt 
+      <div class="section" id="Modularity">
+        
+        <div class="prompt" style="text-align:right;">
+            <h1>Modularity in design</h1>
+            <p>
+              Create an interior space of a modular 
+              <span class="dropdown-trigger" data-trigger="1">exhibition hall  
                 <i class="fa fa-caret-down"></i>
-                </button> 
-                to put here and how to insert a dropdown menu here?
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+              </span>
+              which could be assembled and disassembled easily. 
+              The concept of modularity within construction should be incorporated into the design. 
+              As the main building material 
+              <span class="dropdown-trigger" data-trigger="2">timber beams  
+                <i class="fa fa-caret-down"></i>
+              </span> 
+              should be used. 
+              The singular elements need to be distinguishable from one and each other.
+            </p>
+            <div class="dropdown-menu" data-menu="1">
+                <ul>
+                  <li data-word="classroom">classroom</li>
+                  <li data-word="kitchen">kitchen</li>
+                  <li data-word="hotel lobby">hotel lobby</li>
+                </ul>
+            </div>
+            <div class="dropdown-menu" data-menu="2">
+              <ul>
+                <li data-word="glass plates">glass plates</li>
+                <li data-word="precast concrete plates">precast concrete plates</li>
+                <li data-word="steel beams">steel beams</li>
+              </ul>
+            </div>
         </div>
-    </div>
-    
-    <div class="section">
-        <img src="https://picsum.photos/660/540" alt="prompt">
+        <div class="image-container" style="float:right;">
+          <div class="loading-overlay" id="loading-overlay-Modularity">
+            <div class="loading-dots">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+          </div>
+          <img id="displayedImageModularity" src="../CEA-AI-in-Design/Images/Modularity/exhibition hall/timber beams/1.jpg" alt="prompt">
+          <div class="icon-container">
+            <span class="icon zoom-icon" title="Zoom" data-section="Modularity"><i class="fa fa-search-plus"></i></span>
+            <span class="icon download-icon" title="Download" data-section="Modularity"><i class="fa fa-download"></i></span>
+            <span class="icon reload-icon" title="Reload" data-section="Modularity"><i class="fa fa-refresh"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="Repurpose">
+        <div class="image-container">
+          <div class="loading-overlay" id="loading-overlay-Repurpose">
+            <div class="loading-dots">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+          </div>
+          <img id="displayedImageRepurpose" src="../CEA-AI-in-Design/Images/Repurpose/brick/park bench/1.jpg" alt="prompt">
+          <div class="icon-container">
+            <span class="icon zoom-icon" title="Zoom" data-section="Repurpose"><i class="fa fa-search-plus"></i></span>
+            <span class="icon download-icon" title="Download" data-section="Repurpose"><i class="fa fa-download"></i></span>
+            <span class="icon reload-icon" title="Reload" data-section="Repurpose"><i class="fa fa-refresh"></i></span>
+          </div>
+        </div>
         <div class="prompt">
-            <h1>Reuse Strategies</h1>
-            <p>Think of a 
-                <button> prompt 
+            <h1>Repurpose strategies</h1>
+            <p>
+              Repurpose the
+              <span class="dropdown-trigger" data-trigger="1">brick 
                 <i class="fa fa-caret-down"></i>
-                </button> 
-                to put here and how to insert a dropdown menu here?
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+              </span>
+              to become a 
+              <span class="dropdown-trigger" data-trigger="2">park bench  
+                <i class="fa fa-caret-down"></i>
+              </span>
+            </p>
+            <div class="dropdown-menu" data-menu="1">
+                <ul>
+                  <li data-word="concrete slab">concrete slab</li>
+                  <li data-word="steel beam">steel beam</li>
+                  <li data-word="timber beam">timber beam</li>
+                </ul>
+            </div>
+            <div class="dropdown-menu" data-menu="2">
+              <ul>
+                <li data-word="coffee table">coffee table</li>
+                <li data-word="furniture">furniture</li>
+                <li data-word="another product">another product</li>
+              </ul>
+            </div>
         </div>
-    </div>
+        
+      </div>
 
-
-    <div class="nxtbtn">
-        <button>BTS - Behind the scenes</button>
     </div>
     
-    <div class="nxtbtn">
-        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+
+
+    <div class="next-button-container">
+      <div class="next-button" data-target="#PostProcessing">
+        Post Processing
+      </div>
+      <i class="fa fa-angle-double-down fa-2x"></i>
     </div>
 
-    <div class="nxtbtn">
-        <button>Post Processing</button>
-    </div>
-    
-    <div class="nxtbtn">
-        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+    <div class="container" id="PostProcessing">
+      <div class="text">
+        <p>
+          The generated images are not always feasible in design. So, it helps only as a tool to collect information and draw inspiration from them. 
+          Designers can however process and refine the designs further with sketching and prototyping. Here are a few examples of furniture design.
+        </p>
+      </div>
+      <div class="section" id="PostProcessing" style="height:700px;width:1200px;flex:wrap;">
+        
+        
+        <div class="image-container">
+          <span class="dropdown-trigger" data-trigger="10" style="margin-bottom:20px;margin-inline:0;">Japanese coffee table made out of recycled wood and cardboard of different sizes and shapes
+          <i class="fa fa-caret-down"></i>
+          </span>
+          <div class="dropdown-menu" data-menu="10">
+            <ul>
+              <li data-word="CoffeeTable">a modular futuristic exhibition wall made with reused polycarbonate planks and wooden beams</li>
+            </ul>
+          </div>
+          <img src="../CEA-AI-in-Design/Images/PostProcessing/CoffeeTable/gen.jpg" style="height:auto;width:100%;">
+        </div>
+        <i class="fa fa-angle-double-right fa-5x" style="margin-left:30px"></i>
+        <div class="collage-container" id="collage-container-PP" style="margin-left:30px; flex:1; ">
+        </div>
+        <i class="fa fa-angle-double-right fa-5x" style="margin-left:30px;"></i>
+
+        <div class="image-container" style="justify-content:center;">
+          <img src="../CEA-AI-in-Design/Images/PostProcessing/CoffeeTable/mod.jpg" style="margin-left:30px; flex:1;height:500px;width:100%;">
+        </div>
+      </div>
+      
+      
     </div>
 
-    <div class="nxtbtn">
-        <button>Learn More</button>
+
+    <div class="next-button-container">
+      <div class="next-button" data-target="#BTS">
+        BTS - Behind the scenes
+      </div>
+      <i class="fa fa-angle-double-down fa-2x"></i>
     </div>
+   
+    <div class="container" id="BTS">
+      <div class="text">
+        <p>
+          While AI manages to inspire the designers, it also fails terribly sometimes 
+          (actually most of the time). The large language model does not really understand 
+          the content of the image, it rather focuses only on pixel information and text 
+          matching. Here are some interesting examples or lets say bloopers of the work.
+        </p>
+      </div>
+      
+      <div class="collage-container" id="collage-container">
+        
+      </div>
+    </div>
+
+
     
-    <div class="nxtbtn">
-        <i class="fa fa-angle-double-down fa-3x" style="float:center;margin-top:0px"></i>
+    <div class="next-button-container">
+      <div class="next-button" data-target="#LearnMore">
+        Learn More
+      </div>
+      <i class="fa fa-angle-double-down fa-2x"></i>
     </div>
+
     
 
     <script src="../CEA-AI-in-Design/script.js"></script>
