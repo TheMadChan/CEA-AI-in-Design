@@ -1,4 +1,64 @@
 document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  document.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+
+        // Loop through each section and its corresponding link
+        const sections = document.querySelectorAll('.container');
+        const navLinks = document.querySelectorAll('.navbar a');
+        let activeIndex = 0;
+        navLinks[activeIndex].classList.add('active');
+
+        // Handle the first section separately
+        if (scrollPosition < sections[0].offsetTop) {
+            activeIndex = 0; // Indicate that no section is active
+        }
+
+        for (let i = 0; i < sections.length; i++) {
+            if (scrollPosition >= sections[i].offsetTop) {
+                activeIndex = i+1;
+            }
+        }
+
+        // Remove the 'active' class from all links
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        
+        // Add the 'active' class to the currently active link
+        navLinks[activeIndex].classList.add('active');
+    });
+
+    // Add event listeners for hover events on navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', function() {
+          activeIndex = -1; // Set active index to -1 when hovered
+      });
+
+      link.addEventListener('mouseleave', function() {
+          // Restore the active index when mouse leaves the link
+          // You may need to modify this logic depending on your requirements
+          activeIndex = 0; // Set active index to the first section
+      });
+    });
+  })
+
+document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
     const slides = document.querySelectorAll(".slide");
     const prevBtn = document.querySelector(".prev");
@@ -84,12 +144,14 @@ document.addEventListener("DOMContentLoaded", function() {
       const imageFolders = {
         'Culture': 'Images/Culture',
         'Modularity': 'Images/Modularity',
-        'Repurpose': 'Images/Repurpose'
+        'Repurpose': 'Images/Repurpose',
+        'PostProcessing': 'Images/PostProcessing'
       };
       const selectedWords = {
-        'Culture': {'1': 'exterior', '2': 'Chinese', '3': 'school'},
-        'Modularity': {'1': 'exhibition hall', '2': 'timber beams'},
-        'Repurpose': {'1': 'brick', '2': 'park bench'}
+        'Culture': {'1': 'exterior', '2': 'Chinese', '3': 'school', '4':'Midjourney'},
+        'Modularity': {'1': 'exhibition hall', '2': 'timber beams', '4':'Midjourney'},
+        'Repurpose': {'1': 'brick', '2': 'park bench', '4':'Midjourney'},
+        'PostProcessing':{'1':'Coffee Table'}
       };
       const imageCount = 2; // Number of images per combination
       // const imageContainer = document.querySelector('.image-container img');
@@ -98,7 +160,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const loadingOverlays = {
         'Culture': document.getElementById('loading-overlay-Culture'),
         'Modularity': document.getElementById('loading-overlay-Modularity'),
-        'Repurpose': document.getElementById('loading-overlay-Repurpose')
+        'Repurpose': document.getElementById('loading-overlay-Repurpose'),
+        'PostProcessing': document.getElementById('loading-overlay-PostProcessing')
       };
 
       function showLoadingOverlay(sectionId) {
@@ -117,12 +180,24 @@ document.addEventListener("DOMContentLoaded", function() {
           const word1 = words['1'];
           const word2 = words['2'];
           const word3 = words['3'];
-          if (word1 && word2) {
-            console.log('Words are present:', word1, word2, word3);
-            // const randomImageNumber = Math.floor(Math.random() * imageCount) + 1;
-            const imagePath = word3
-              ? `${imageFolders[sectionId]}/${word1}/${word2}/${word3}/1.jpg`
-              : `${imageFolders[sectionId]}/${word1}/${word2}/1.jpg`;
+          const word4 = words['4'];
+
+          if (word1 && word2 && (word3 || sectionId==='Repurpose'|| sectionId==='Modularity') && word4) {
+            console.log('Words are present:', word1, word2, word3, word4);
+            let imageNumber = '';
+            if (word4 === 'Midjourney'){
+              imageNumber = '1.jpg';
+            } 
+            else if (word4 === 'Runway ML'){
+              imageNumber = '2.jpg';
+            }
+            else {
+              imageNumber = '3.jpg';  
+            }
+            const imagePath = `Images/${sectionId}/${word1}/${word2}/${word3 || ''}/${imageNumber}`.replace('//', '/');
+            // const imagePath = word3
+            //   ? `${imageFolders[sectionId]}/${word1}/${word2}/${word3}/1.jpg`
+            //   : `${imageFolders[sectionId]}/${word1}/${word2}/1.jpg`;
             showLoadingOverlay(sectionId);
             console.log('imagepath:',imagePath);
             setTimeout(() => {
@@ -133,6 +208,51 @@ document.addEventListener("DOMContentLoaded", function() {
           }
       }
 
+      function updateImagesPP(sectionId) {
+        console.log('updateImagesPP() function called');
+          const words = selectedWords[sectionId];
+          const word1 = words['1'];
+          const collageContainerPP = document.getElementById('collage-container-PP');
+
+          if (word1) {
+            console.log('Words are present:', word1);
+            const imageNumber1 = 'gen.jpg';
+            const imagePath1 = `Images/${sectionId}/${word1}/${imageNumber1}`;
+            const imageNumber2 = 'mod.jpg';
+            const imagePath2 = `Images/${sectionId}/${word1}/${imageNumber2}`;
+            showLoadingOverlay(sectionId);
+            console.log('imagepath:',imagePath1);
+            setTimeout(() => {
+                console.log(`${sectionId}`);
+                document.getElementById(`displayedGenImage${sectionId}`).src = imagePath1;
+                document.getElementById(`displayedModImage${sectionId}`).src = imagePath2;
+                hideLoadingOverlay(sectionId);
+            }, 1000); // Delay of 1 second
+            
+            const numberOfImagesPP = 4; // Adjust this number as needed
+            showLoadingOverlay(sectionId);
+            setTimeout(() => {
+                // Loop through the number of images and create img elements
+                for (let i = 1; i <= numberOfImagesPP; i++) {
+                    const img = collageContainerPP.querySelectorAll('img');
+                    console.log('images:',img[i-1]);
+                    img[i-1].src = `Images/${sectionId}/${word1}/${i}.jpg`;
+                    img[i-1].alt = `Image ${i}`;
+                    // img.classList.add('collage-image');
+                    // collageContainerPP.appendChild(img);
+                }
+            }, 1000); // Delay of 1 second
+            const text = document.getElementById('text-PP');
+            if(word1==='Coffee Table'){
+              text.innerText='Japanese coffee table made out of recycled wood and cardboard of different sizes and shapes'
+            }
+            else if(word1==='Coat Hanger'){
+              text.innerText='a modular futuristic exhibition wall made with reused polycarbonate planks and wooden beams'
+            }
+            
+          }
+      }
+
       function toggleDropdown(event) {
           const trigger = event.currentTarget;
           const triggerId = trigger.getAttribute('data-trigger');
@@ -140,15 +260,20 @@ document.addEventListener("DOMContentLoaded", function() {
           const sectionId = sectionElement ? sectionElement.id : null;
           console.log('Dropdown trigger clicked in section:', sectionId);
           const dropdownMenu = sectionElement.querySelector(`.dropdown-menu[data-menu="${triggerId}"]`);
+          console.log('dropdown-menu to toggle:',dropdownMenu);
           // Close the currently open menu if it is not the same as the one being toggled
           if (currentOpenMenu && currentOpenMenu !== dropdownMenu) {
               currentOpenMenu.style.display = 'none';
           }
           const rect = trigger.getBoundingClientRect();
+          console.log('Trigger:',trigger);
+          console.log('Rectangle:',rect);
           dropdownMenu.style.top = `${rect.bottom + window.scrollY}px`;
           dropdownMenu.style.left = `${rect.left + window.scrollX}px`;
-          dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-          currentOpenMenu = dropdownMenu.style.display === 'block' ? dropdownMenu : null;
+          console.log(`${rect.left + window.scrollX}px`);
+          dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+          dropdownMenu.style.zIndex = '1000';
+          currentOpenMenu = dropdownMenu.style.display === 'flex' ? dropdownMenu : null;
 
           event.stopPropagation();
       }
@@ -199,7 +324,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     liToSwap.setAttribute('data-word', previousWord);
                   }     
 
-                  updateImage(sectionId);
+                  if(sectionId==='PostProcessing'){
+                    updateImagesPP(sectionId);
+                  }
+                  else{
+                    updateImage(sectionId);
+                  }
                   menu.parentNode.style.display = 'none';
                   currentOpenMenu = null;
               }
@@ -308,21 +438,20 @@ document.addEventListener("DOMContentLoaded", function() {
         img.classList.add('collage-image');
         collageContainer.appendChild(img);
     }
+
     const collageContainerPP = document.getElementById('collage-container-PP');
 
     // Number of images you have
     const numberOfImagesPP = 4; // Adjust this number as needed
 
-    // Folder path where images are stored
-    const folderPathPP = 'Images/PostProcessing/CoffeeTable'; 
-
     // Loop through the number of images and create img elements
     for (let i = 1; i <= numberOfImagesPP; i++) {
         const img = document.createElement('img');
-        img.src = `${folderPathPP}/${i}.jpg`;
+        img.src = `Images/PostProcessing/Coffee Table/${i}.jpg`;
         img.alt = `Image ${i}`;
         img.classList.add('collage-image');
         collageContainerPP.appendChild(img);
     }
+    
     
   });
